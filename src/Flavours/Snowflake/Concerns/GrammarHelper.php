@@ -25,7 +25,7 @@ trait GrammarHelper
      */
     public function columnize(array $columns)
     {
-        return implode(', ', array_map([$this, 'wrapColumn'], $columns));
+        return implode(', ', array_map([$this, 'wrap'], $columns));
     }
 
     /**
@@ -55,7 +55,7 @@ trait GrammarHelper
      */
     public function getValue($expression)
     {
-        return $expression instanceof Expression ? $expression->getValue() : $expression;
+        return $expression instanceof Expression ? $expression->getValue($this) : $expression;
     }
 
     /**
