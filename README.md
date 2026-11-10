@@ -1,5 +1,9 @@
 # ODBC/Snowflake Integration for Laravel Framework
 
+Enjoying this project?
+
+[![Buy us a coffee](https://img.shields.io/badge/☕-Buy%20us%20a%20coffee-orange)](https://buy.stripe.com/5kAdTS2Xm45p2IM9AA)
+
 This repository provides seamless integration of ODBC/Snowflake with Laravel Eloquent.
 It aims to create a comprehensive ODBC package for Laravel, while also
 functioning as a standalone solution.
@@ -59,6 +63,21 @@ SNOWFLAKE_COLUMNS_CASE_SENSITIVE=false
 # When set to `true`, column names are wrapped in double quotes and their
 # case is determined by the input.
 SNOWFLAKE_COLUMNS_CASE_SENSITIVE=true
+```
+
+### Snowflake Query Grammar options
+
+When using the Snowflake flavour, the query grammar compiles `LIKE` clauses as
+`ILIKE` by default (case-insensitive). You can disable this behavior per
+connection:
+
+```php
+'snowflake_pdo' => [
+    // ...
+    'options' => [
+        'use_ilike' => false,
+    ],
+],
 ```
 
 ## Usage
